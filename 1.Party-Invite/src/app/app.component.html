@@ -1,0 +1,49 @@
+<div style="text-align: center;">
+  <h1>
+    New Year Party Invite
+  </h1>
+  <h4>
+    Let's come together celebrate the new year...
+  </h4>
+
+  <form ngForm="signUpForm" (ngSubmit)="submitForm()">
+    <div>
+      <label for="guestName">What is your name?</label>
+    </div>
+    <div>
+      <input type="text" name="guestName" id="guestName" [(ngModel)]="model.name">
+    </div>
+    <br>
+    <div>
+      <label for="guestName">Can you attend?</label>
+    </div>
+    <div>
+      <input type="radio" name="canAttend" id="canAttend" value="true" [(ngModel)]="model.canAttend">
+      <label for="presence">Yes, I'll be there</label>
+    </div>
+    <div>
+      <input type="radio" name="canAttend" id="canAttend" value="false" [(ngModel)]="model.canAttend">
+      <label for="presence">Sorry, I can't make it</label>
+    </div>
+    <br>
+    <div>
+      <label for="">How many of you are attending?</label>
+    </div>
+    <div>
+      <input type="number" name="totalGuest" id="totalGuest" [(ngModel)]="model.totalGuest">
+    </div>
+    <br>
+    <div>
+      <label for="">What will you be bringing?</label>
+    </div>
+    <div>
+      <div *ngFor="let dish of menuDishes">
+        <input type="checkbox" [value]="dish" (change)="updateBasket($event,dish)">
+        {{dish}}
+      </div>
+    </div>
+    <br>
+    <button type="submit" value="">Submit</button>
+  </form>
+
+</div>
